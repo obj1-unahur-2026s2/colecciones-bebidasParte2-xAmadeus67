@@ -9,3 +9,47 @@ object terere {
 object cianuro {
   method rendimientoQueOtorga(dosisConsumida) = 0
 }
+
+//nuevas bebidas
+
+object licuadoDeFrutas {
+  const ingredientes = []
+
+  method rendimientoQueOtorga(dosisConsumida) {
+    return self.sumaDeLosNutrientes() / dosisConsumida
+  }
+  method agregarIngrediente(unIngrediente) {
+    return ingredientes.add(unIngrediente)
+  }
+  method sumaDeLosNutrientes() {
+    return ingredientes.sum({i=>i.nutrientes()})
+  }
+}
+
+object aguaSaborizada {
+  var bebidaActual = cianuro
+
+  method rendimientoQueOtorga(dosisConsumida) {
+    return 1 + (dosisConsumida/4 * bebidaActual.rendimientoQueOtorga(dosisConsumida))
+  }
+  method cambiarBebida(unaBebida) {
+    bebidaActual = unaBebida
+  }
+}
+
+object coctel {
+  const bebidas = []
+
+  method rendimientoQueOtorga(dosisConsumida) {
+    return 
+  }
+  method rendimientosDeBebidasEnElCoctel(dosisConsumida) {
+    return bebidas.map({b=>b.rendimientoQueOtorga(dosisConsumida)})
+  }
+  method agregarBebida(unaBebida) {
+    return bebidas.add(unaBebida)
+  }
+  method quitarBebida(unaBebida) {
+    return bebidas.remove(unaBebida)
+  }
+}
