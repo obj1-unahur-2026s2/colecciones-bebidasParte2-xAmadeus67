@@ -30,7 +30,7 @@ object aguaSaborizada {
   var bebidaActual = cianuro
 
   method rendimientoQueOtorga(dosisConsumida) {
-    return 1 + (dosisConsumida/4 * bebidaActual.rendimientoQueOtorga(dosisConsumida))
+    return 1 + bebidaActual.rendimientoQueOtorga(dosisConsumida/4)
   }
   method cambiarBebida(unaBebida) {
     bebidaActual = unaBebida
