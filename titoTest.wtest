@@ -14,9 +14,9 @@ describe "Tests de Tito" {
     assert.equals(10, tito.dosisConsumida())
   }
   test "probando calculos en coctel" {
-    coctel.agregarBebida(cianuro)
+    coctel.agregarBebida(terere)
     coctel.agregarBebida(whisky)
     tito.consumir(400, coctel)
-    assert.equals(0 ,tito.rendimiento())
+    assert.equals(200 ,coctel.rendimientoQueOtorga(500))
   }
 }

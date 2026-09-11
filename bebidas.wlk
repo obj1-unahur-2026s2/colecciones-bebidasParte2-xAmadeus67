@@ -41,11 +41,13 @@ object coctel {
   const bebidas = []
 
   method rendimientoQueOtorga(dosisConsumida) {
-    return 
+    return bebidas.fold(1, {resultado, b => b.rendimientoQueOtorga(dosisConsumida/self.cantidadDeBebidasEnElCoctel() * resultado)}) 
+    
   }
-  method rendimientosDeBebidasEnElCoctel(dosisConsumida) {
-    return bebidas.map({b=>b.rendimientoQueOtorga(dosisConsumida)})
+  method cantidadDeBebidasEnElCoctel() {
+    return bebidas.size()
   }
+  
   method agregarBebida(unaBebida) {
     return bebidas.add(unaBebida)
   }
